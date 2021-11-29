@@ -6,9 +6,9 @@
 4. [Sequence diagram](#seq_diagram)
 5. [High level component design](#high_design)
 6. [Implementation details. ](#implementation)
-7. [Technology stack. ](#stack)
-8. [Unit test results](#junits)
-9. [Screenshots](#screenshots)
+8. [Technology stack. ](#stack)
+9. [Unit test results](#junits)
+10. [Screenshots](#screenshots)
 
 <a name="feats"></a>
 ## Features
@@ -27,14 +27,16 @@
 <a name="runapp"></a>
 ## Instructions to run application
 - Clone the git repo
-- [Optional] Update zendesk.baseurl in application.properties with your subdomain
-- [Optional] Update zendesk.oAuthToken in application.properties with your oAuthToken
+- [Optional] Update zendesk.baseurl in src/main/resources/application.properties with your subdomain.
+- [Optional] Update zendesk.oAuthToken in src/main/resources/application.properties with your oAuthToken.
+- [Info] Application will be running on 8080 port.
 ### Instuctions to run backend
 ```sh
 cd backend
 mvn clean install
 java -jar target/vinay-0.0.1-SNAPSHOT.jar
 ```
+Health check URL http://localhost:8080/actuator/health
 ### Instuctions to run UI
     - Go to ui directory open index.html on Chrome browser
 
@@ -45,6 +47,10 @@ java -jar target/vinay-0.0.1-SNAPSHOT.jar
 <a name="high_design"></a>
 ## High level component design
 ![Alt text](images/design/component.png)
+### Component overview
+1. <b>Ticket Controller</b> contains GET end points to fetch ticket list and individual tickets.
+2. <b>Ticket service</b> calls Zendesk API to get ticket list and individual ticket for an user
+3. <b>Ticket cache(ehcache)</b> to perform caching to reduce API calls. Currently records are cached for 600 seconds.
 
 <a name="implementation"></a>
 ## Implementation details
@@ -54,10 +60,12 @@ java -jar target/vinay-0.0.1-SNAPSHOT.jar
 4. zendesk-java-client(by cloudbees-oss) is not used since this library is not officially  supported from Zendesk.
 4. Created 2 API for getting ticket list and individual ticket details.
 5. Used ehcache to store results for 600 seconds.
-6. Junit tests are written for both rest layer and service layer. Model and configs are ingored as of now.
+6. Junit tests are written for both rest layer and service layer. Model and configs are ingored as of now. Coverage report can be viewed by opening target/site/jacoco/index.html
 7. For displaying ticket list in UI I'm using simple and light weight bootstrap table. This table is paginated and user can change number of records per table.
 8. Individual ticket details are displayed as modal popup. Currently limited fields are displayed in UI, if required they can be changed without additional efforts.
 9. Screenshots of UI and test coverage are attached at the bottom.
+
+
 
 <a name="stack"></a>
 ## Technology stack
