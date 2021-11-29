@@ -6,6 +6,7 @@
 4. [Sequence diagram](#seq_diagram)
 5. [High level component design](#high_design)
 6. [Implementation details. ](#implementation)
+7. [REST API details.](#api)
 8. [Technology stack. ](#stack)
 9. [Unit test results](#junits)
 10. [Screenshots](#screenshots)
@@ -65,7 +66,17 @@ Health check URL http://localhost:8080/actuator/health
 8. Individual ticket details are displayed as modal popup. Currently limited fields are displayed in UI, if required they can be changed without additional efforts.
 9. Screenshots of UI and test coverage are attached at the bottom.
 
+<a name="api"></a>
+## REST API details
+```sh
+#Getting list of tickets
+#Replace <start_index> with ticket starting index <page_size> with page size
+GET http://localhost:8080/tickets?offset=<start_index>&limit=<page_size>
 
+#Getting individual ticket
+#Replace <ticket_id> with ticket id
+GET http://localhost:8080/ticket?ticketId=<ticket_id>
+```
 
 <a name="stack"></a>
 ## Technology stack
