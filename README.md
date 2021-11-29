@@ -26,6 +26,9 @@
 
 <a name="runapp"></a>
 ## Instructions to run application
+- Clone the git repo
+- [Optional] Update zendesk.baseurl in application.properties with your subdomain
+- [Optional] Update zendesk.oAuthToken in application.properties with your oAuthToken
 ### Instuctions to run backend
 ```sh
 cd backend
