@@ -47,7 +47,7 @@ java -jar target/vinay-0.0.1-SNAPSHOT.jar
 ## Implementation details
 1. Using spring boot for rapid development of backend microservice within short duration.
 2. Used spring webclient for communication between microservice and Zendesk API.
-3. For authorization with Zendesk, I'm using API token. Zendesk URL and API token are stored as environment variables.
+3. For authorization with Zendesk, I'm using OAuth token. Zendesk URL and API token are stored as environment variables.
 4. Created 2 API for getting ticket list and individual ticket details.
 5. Used ehcache to store results for 600 seconds.
 6. Junit tests are written for both rest layer and service layer. Model and configs are ingored as of now.
