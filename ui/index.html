@@ -49,6 +49,10 @@
 	  				<div class="col-sm-8" id="modalTicketStatus">c-</div>
 				</div>
 				<div class="row">
+	  				<div class="col-sm-4" ><b> Priority </b></div>
+	  				<div class="col-sm-8" id="modalTicketPriority">-</div>
+				</div>
+				<div class="row">
 	  				<div class="col-sm-4" ><b> Description </b></div>
 	  				<div class="col-sm-8" id="modalTicketDescription">-</div>
 				</div>
@@ -122,6 +126,7 @@
 			      			$("#modalTicketSubject").html(data.subject);
 			      			$("#modalTicketStatus").html(data.status);
 			      			$("#modalTicketDescription").html(data.description);
+			      			$("#modalTicketPriority").html(data.priority);
 			      			$("#modalBody").show();
 			            	$("#modalLoading").hide();
 			            	$("#loadError").hide();
