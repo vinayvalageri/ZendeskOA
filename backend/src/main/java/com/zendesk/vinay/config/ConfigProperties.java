@@ -9,6 +9,7 @@ public class ConfigProperties {
     private String baseUrl;
     private String username;
     private String password;
+    private String oAuthToken;
 
     public String getBaseUrl() {
         return baseUrl;
@@ -32,5 +33,13 @@ public class ConfigProperties {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getoAuthToken() {
+        return oAuthToken;
+    }
+
+    public void setoAuthToken(String oAuthToken) {
+        this.oAuthToken = oAuthToken;
     }
 }

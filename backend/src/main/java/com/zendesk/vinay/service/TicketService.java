@@ -17,6 +17,12 @@ public class TicketService {
     @Autowired
     private WebClient webClient;
 
+    /**
+     * Service for getting list of ticket
+     * @param offset Starting index of records
+     * @param limit Page limit
+     * @return Map containing ticket list and total ticket count
+     */
     @Cacheable(value="ticketListCache", key="#offset + #limit")
     public Map<String, Object> getTickets(String offset, String limit) {
         int off = Integer.parseInt(offset);
@@ -33,6 +39,11 @@ public class TicketService {
         return response;
     }
 
+    /**
+     * Service for getting details of single ticket
+     * @param ticketId
+     * @return Ticket
+     */
     @Cacheable(value = "ticketCache", key="#ticketId")
     public Ticket getTicket(String ticketId) {
         return webClient.get()
